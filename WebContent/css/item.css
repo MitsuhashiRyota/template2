@@ -1,0 +1,137 @@
+@CHARSET "UTF-8";
+
+#container {
+	width: 74%;
+	height: 500px;
+	margin: 10px auto;
+	float: right;
+}
+
+.items {
+	width: 180px;
+	height: 250px;
+	float: left;
+	margin: 0 2% 0% 0;
+	border-bottom: solid 1px #d1d1d1;
+}
+
+.cart_list {
+	width: 50%;
+	margin: 0 30%;
+	text-align: center;
+}
+
+.cart_item {
+    width: 960px;
+	height: 150px;
+	margin: 0 auto;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	padding: 0 0 0 7px; text-align : left;
+	border: solid 1px #d1d1d1;
+	text-align: left;
+}
+
+.not_cart_item {
+    width: 960px;
+	height: 150px;
+	margin: 0 auto;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	padding: 0 0 0 7px; text-align : left;
+	border: solid 1px #d1d1d1;
+	text-align: center;
+}
+
+.itemImage {
+	float: left;
+	width: 40%;
+	margin: 0 auto;
+	padding: 3% 0 0 0;
+}
+
+.itemMoreln {
+	width: 25%;
+	margin: 0 auto;
+	float: left;
+	padding: 3% 0px 0px 30px;
+}
+
+#CartItemAction_0 {
+	margin: 25px 0 10px 0;
+}
+
+#CategoryItemBuyConfirmAction_0 {
+	margin: 0 auto;
+}
+
+#differentItems {
+	width: 640px;
+	height: 40%;
+	margin: 0 auto;
+}
+
+.differentList {
+	width: 120px;
+	height: 170px;
+	float: left;
+	margin: 0 15px 0 15px;
+	border-top: solid 1px #f7f7f7;
+}
+
+.bookInfo {
+	width: 680px;
+	height: 100px;
+}
+
+.itemInfo {
+	width: 450px;
+    height: 150px;
+    float: left;
+}
+
+.cartItemImage {
+    width: 150px;
+    height: 150px;
+    float: left;
+}
+
+.itemPrice {
+	width: 180px;
+	height: 150px;
+	float: left;
+}
+
+.itemDelete {
+	width: 180px;
+	height: 150px;
+	float: left;
+}
+
+.deleteBtn {
+	padding: 13% 60% 0 0px;
+    margin-top: 60px;
+    border-radius: 10px;
+}
+
+.deleteWord {
+    position: absolute;
+    margin: 60px 0 0px -78px;
+    font-size: 17px;
+}
+
+.itemPriceArea {
+    margin: 20px 0px 0px 0;
+    font-size: 25px;
+    color: purple;
+}
+
+.itemImageArea {
+	width: 80%;
+    height: 90%;
+    padding: 7px 0 0 0;
+}
+
+#buyComplate {
+	height: 600px;
+}

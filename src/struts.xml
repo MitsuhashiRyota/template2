@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<!-- Strutsの詳細設定 -->
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<!-- 対象のpackageを設定 -->
+	<package name="com.internousdev.komozon.action" extends="struts-default">
+
+		<!-- HomeAction -->
+		<action name="HomeAction" class="com.internousdev.komozon.action.HomeAction" method="execute">
+			<result name="success">home.jsp</result>
+		</action>
+
+		<!-- IndexAction -->
+		<action name="IndexAction" class="com.internousdev.komozon.action.IndexAction" method="execute">
+			<result name="success">index.jsp</result>
+		</action>
+
+		<!-- LoginAction -->
+		<action name="LoginAction" class="com.internousdev.komozon.action.LoginAction" method="execute">
+			<result name="success">login.jsp</result>
+			<result name="logined">home.jsp</result>
+		</action>
+
+		<!-- LogoutAction -->
+		<action name="LogoutAction" class="com.internousdev.komozon.action.LogoutAction" method="execute">
+			<result  type="chain" name="success">HomeAction</result>
+		</action>
+
+		<!-- MyPageAction -->
+		<action name="MyPageAction" class="com.internousdev.komozon.action.MyPageAction" method="execute">
+			<result name="success">myPage.jsp</result>
+		</action>
+
+		<!-- SearchItemAction -->
+		<action name="SearchItemAction" class="com.internousdev.komozon.action.SearchItemAction" method="execute">
+			<result name="success">categoryItem.jsp</result>
+		</action>
+
+		<!-- CategoryItemAction -->
+		<action name="CategoryItemAction" class="com.internousdev.komozon.action.CategoryItemAction" method="execute">
+			<result name="success">categoryItem.jsp</result>
+		</action>
+
+		<!-- CategoryItemBuyComplateAction -->
+		<action name="CategoryItemBuyComplateAction" class="com.internousdev.komozon.action.CategoryItemBuyComplateAction" method="execute">
+			<result name="success">categoryItemBuyComplate.jsp</result>
+		</action>
+
+		<!-- CategoryItemBuyConfirmAction -->
+		<action name="CategoryItemBuyConfirmAction" class="com.internousdev.komozon.action.CategoryItemBuyConfirmAction" method="execute">
+			<result name="success">categoryItemBuyConfirm.jsp</result>
+			<result name="login">login.jsp</result>
+		</action>
+
+		<!-- CategoryItemMoreInformationAction -->
+		<action name="CategoryItemMoreInformationAction" class="com.internousdev.komozon.action.CategoryItemMoreInformationAction" method="execute">
+			<result name="success">categoryItemBuyMoreInformation.jsp</result>
+		</action>
+
+		<!-- BuyItemHistoryAction -->
+		<action name="BuyItemHistoryAction" class="com.internousdev.komozon.action.BuyItemHistoryAction" method="execute">
+			<result name="success">buyItemHistory.jsp</result>
+		</action>
+
+		<!-- CartItemAction -->
+		<action name="CartItemAction" class="com.internousdev.komozon.action.CartItemAction" method="execute">
+			<result name="success">cartItem.jsp</result>
+		</action>
+	</package>
+</struts>

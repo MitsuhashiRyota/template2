@@ -11,13 +11,22 @@ import com.internousdev.komozon.dto.CategoryItemDTO;
 import com.internousdev.komozon.util.DBConnector;
 
 public class SearchItemDAO {
-	private DBConnector dbConnector = new DBConnector();
-
-	private ArrayList<CategoryItemDTO> categoryItemDTOList = new ArrayList<CategoryItemDTO>();
 
 	/**
-	 *
-	 * @return
+	 * DBConnector変数
+	 * DB接続設定値が格納されてます。
+	 */
+	private DBConnector dbConnector = new DBConnector();
+
+	/**
+	 * List<CategoryItemDTO>変数
+	 * item_infoテーブルから取得した値を格納します。
+	 */
+	private List<CategoryItemDTO> categoryItemDTOList = new ArrayList<CategoryItemDTO>();
+
+	/**
+	 * item_infoテーブルにアクセスし、商品情報の値を取得します。
+	 * @return List<CategoryItemDTO>
 	 * @throws SQLException
 	 */
 	public List<CategoryItemDTO> getSeachItems(String searchText, String category) throws SQLException {
@@ -27,9 +36,9 @@ public class SearchItemDAO {
 		String sql = "";
 
 		if(category.equals("0")) {
-			sql = "select * from item_info where item_name like ?";
+			sql = "SELECT * FROM item_info WHERE item_name LIKE ?";
 		} else {
-			sql = "select * from item_info where item_name like ? AND category_id = ?";
+			sql = "SELECT * FROM item_info WHERE item_name LIKE ? AND category_id = ?";
 		}
 
 		try {

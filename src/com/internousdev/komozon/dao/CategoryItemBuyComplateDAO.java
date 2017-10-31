@@ -11,8 +11,16 @@ import com.internousdev.komozon.util.DateUtil;
 
 public class CategoryItemBuyComplateDAO {
 
+	/**
+	 * DBConnector変数
+	 * DB接続設定値が格納されてます。
+	 */
 	private DBConnector dbConnector = new DBConnector();
 
+	/**
+	 * Connection変数
+	 * DBに接続するための実行クラスが格納されてます。
+	 */
 	private Connection connection;
 
 	/**
@@ -52,6 +60,12 @@ public class CategoryItemBuyComplateDAO {
 		return resultCount;
 	}
 
+	/**
+	 * cart_infoテーブルにアクセスし、対象のデータを削除します。
+	 * @param userId
+	 * @return int
+	 * @throws SQLException
+	 */
 	public int deleteCartInfo(String userId) throws SQLException {
 		connection = dbConnector.getConnection();
 
@@ -68,7 +82,7 @@ public class CategoryItemBuyComplateDAO {
 		} finally {
 			connection.close();
 		}
-
 		return resultCount;
+
 	}
 }

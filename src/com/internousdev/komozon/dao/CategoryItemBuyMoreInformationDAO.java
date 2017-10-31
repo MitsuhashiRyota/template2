@@ -10,13 +10,21 @@ import com.internousdev.komozon.util.DBConnector;
 
 public class CategoryItemBuyMoreInformationDAO {
 
+	/**
+	 * DBConnector変数
+	 * DB接続設定値が格納されてます。
+	 */
 	private DBConnector dbConnector = new DBConnector();
 
+	/**
+	 * CategoryItemDTO変数
+	 * category_infoテーブルの情報を格納します。
+	 */
 	private CategoryItemDTO categoryItemDTO = new CategoryItemDTO();
 
 	/**
-	 *
-	 * @return
+	 * 選択した商品IDに紐づくcategory_infoテーブルの情報を取得します。
+	 * @return CategoryItemDTO
 	 * @throws SQLException
 	 */
 	public CategoryItemDTO getSelectCategoryItems(String id) throws SQLException {

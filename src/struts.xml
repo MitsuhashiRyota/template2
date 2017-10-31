@@ -14,11 +14,6 @@
 			<result name="success">home.jsp</result>
 		</action>
 
-		<!-- IndexAction -->
-		<action name="IndexAction" class="com.internousdev.komozon.action.IndexAction" method="execute">
-			<result name="success">index.jsp</result>
-		</action>
-
 		<!-- LoginAction -->
 		<action name="LoginAction" class="com.internousdev.komozon.action.LoginAction" method="execute">
 			<result name="success">login.jsp</result>
@@ -59,11 +54,6 @@
 		<!-- CategoryItemMoreInformationAction -->
 		<action name="CategoryItemMoreInformationAction" class="com.internousdev.komozon.action.CategoryItemMoreInformationAction" method="execute">
 			<result name="success">categoryItemBuyMoreInformation.jsp</result>
-		</action>
-
-		<!-- BuyItemHistoryAction -->
-		<action name="BuyItemHistoryAction" class="com.internousdev.komozon.action.BuyItemHistoryAction" method="execute">
-			<result name="success">buyItemHistory.jsp</result>
 		</action>
 
 		<!-- CartItemAction -->

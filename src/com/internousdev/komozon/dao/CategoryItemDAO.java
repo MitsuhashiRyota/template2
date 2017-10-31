@@ -17,24 +17,22 @@ public class CategoryItemDAO {
 	private ArrayList<CategoryItemDTO> categoryItemDTOList = new ArrayList<CategoryItemDTO>();
 
 	/**
-	 *
-	 * @return
+	 * item_infoテーブルにアクセスし商品情報を取得するメソッド
+	 * @return List<CategoryItemDTO>
 	 * @throws SQLException
 	 */
-	public List<CategoryItemDTO> getCategoryItems(int id) throws SQLException {
+	public List<CategoryItemDTO> getCategoryItems() throws SQLException {
 
+		// DBにアクセスするための設定を取得
 		Connection connection = dbConnector.getConnection();
 
-		String sql = "SELECT * FROM item_info where category_id = ? ORDER BY id ASC LIMIT 12 OFFSET ?";
+		// 実行するSQLを宣言
+		String sql = "SELECT * FROM item_info where category_id = ? ORDER BY id ASC LIMIT 12";
 
 		try {
+			// プリペアードステートメントの生成、対象のSQL構文を指定
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setInt(1, 1);
-			if(id != 0) {
-				preparedStatement.setInt(2, id);
-			} else {
-				preparedStatement.setInt(2, 0);
-			}
 
 			ResultSet resultSet = preparedStatement.executeQuery();
 

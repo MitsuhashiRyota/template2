@@ -8,10 +8,23 @@ import com.internousdev.komozon.util.DBConnector;
 
 public class LogoutDAO {
 
+	/**
+	 * DBConnector変数
+	 * DB接続設定値が格納されてます。
+	 */
 	private DBConnector dbConnector = new DBConnector();
 
+	/**
+	 * Connection変数
+	 * DBに接続するための実行クラスが格納されてます。
+	 */
 	private Connection connection = dbConnector.getConnection();
 
+	/**
+	 * user_infoテーブルにアクセスし、ログインフラグの情報をログアウト状態に変更します。
+	 * @param userId
+	 * @return int
+	 */
 	public int updateLogined(String userId) {
 
 		String sql = "UPDATE user_info SET logined = 0 WHERE user_id = ?";

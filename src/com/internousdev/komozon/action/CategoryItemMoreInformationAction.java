@@ -1,8 +1,6 @@
 package com.internousdev.komozon.action;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -14,36 +12,42 @@ import com.opensymphony.xwork2.ActionSupport;
 public class CategoryItemMoreInformationAction extends ActionSupport implements SessionAware{
 
 	/**
-	 * 共通変数sessionを定義
+	 * Session変数
+	 * JSPへ別クラス間で値の共有を行います。
 	 */
 	public Map<String, Object> session;
 
 	/**
-	 *
+	 * id変数
+	 * 選択した商品のIDを格納します。
 	 */
 	private String id;
 
 	/**
-	 *
+	 * CategoryItemBuyMoreInformationDAO変数
+	 * cart_infoテーブルにアクセスします。
 	 */
 	private CategoryItemBuyMoreInformationDAO categoryItemBuyMoreInformationDAO = new CategoryItemBuyMoreInformationDAO();
 
 	/**
-	 *
+	 * CategoryItemDTO変数
+	 * cart_infoテーブルにアクセスして取得した値を格納します。
 	 */
 	private CategoryItemDTO categoryItemDTO = new CategoryItemDTO();
 
 	/**
-	 *
+	 * Executeメソッド
+	 * Struts.xmlで設定した実行メソッド
 	 */
-	public List<CategoryItemDTO> categoryItemList = new ArrayList<>();
-
-	@SuppressWarnings("unchecked")
 	public String execute() throws SQLException {
+
+		// メソッド内で利用する変数の初期化
+		String result = SUCCESS;
 
 		// 選択した商品情報から商品の詳細レコードを取得
 		categoryItemDTO = categoryItemBuyMoreInformationDAO.getSelectCategoryItems(getId());
 
+		// 評価星の設定を行います。
 		switch (categoryItemDTO.getUserRating()) {
 			case 0:
 				categoryItemDTO.setUserRatingStar("☆☆☆☆☆");
@@ -65,12 +69,10 @@ public class CategoryItemMoreInformationAction extends ActionSupport implements 
 				break;
 		}
 
-		categoryItemList = (List<CategoryItemDTO>) session.get("categoryItemList");
-
 		// DAOから取得した結果Sessionに格納
 		session.put("categoryItemInfo", categoryItemDTO);
 
-		return SUCCESS;
+		return result;
 	}
 
 	/**
@@ -93,13 +95,4 @@ public class CategoryItemMoreInformationAction extends ActionSupport implements 
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
 	}
-
-	public List<CategoryItemDTO> getCategoryItemList() {
-		return categoryItemList;
-	}
-
-	public void setCategoryItemList(List<CategoryItemDTO> categoryItemList) {
-		this.categoryItemList = categoryItemList;
-	}
-
 }

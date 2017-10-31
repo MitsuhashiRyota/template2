@@ -13,24 +13,48 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class SearchItemAction extends ActionSupport implements SessionAware{
 
+	/**
+	 * Session変数
+	 * JSPへ別クラス間で値の共有を行います。
+	 */
 	public Map<String, Object> session;
 
+	/**
+	 * SearchItemDAO変数
+	 * item_infoテーブルにアクセスします。
+	 */
 	private SearchItemDAO searchItemDAO = new SearchItemDAO();
 
+	/**
+	 * List<CategoryItemDTO>変数
+	 * item_infoテーブルから取得した値を格納します。
+	 */
 	private List<CategoryItemDTO> categoryItemList = new ArrayList<>();
 
+	/**
+	 * searchText変数
+	 * 検索文言
+	 */
 	public String searchText;
 
+	/**
+	 * category変数
+	 * 選択カテゴリー
+	 */
 	public String category;
 
+	/**
+	 * Executeメソッド
+	 * Struts.xmlで設定した実行メソッド
+	 */
 	public String execute() throws SQLException {
 
-		String result = ERROR;
+		// メソッド内で利用する変数の初期化
+		String result = SUCCESS;
 
+		// item_infoテーブルにアクセスし、検索文言とカテゴリーから絞り込んだ結果を取得します。
 		categoryItemList = searchItemDAO.getSeachItems(searchText, category);
 		session.put("categoryItemList", categoryItemList);
-
-		result = SUCCESS;
 
 		return result;
 	}

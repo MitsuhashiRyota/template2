@@ -2,44 +2,20 @@ package com.internousdev.komozon.dto;
 
 public class CartItemDTO {
 
-	/**
-	 *
-	 */
 	public String cartItemId;
 
-	/**
-	 *
-	 */
 	public String itemName;
 
-	/**
-	 *
-	 */
 	public int itemPrice;
 
-	/**
-	 *
-	 */
 	public String itemImagePath;
 
-	/**
-	 *
-	 */
 	public String itemDescription;
 
-	/**
-	 *
-	 */
 	public String releaseDate;
 
-	/**
-	 *
-	 */
 	public String releaseCompany;
 
-	/**
-	 *
-	 */
 	public int userRating;
 
 	public String getItemImagePath() {
@@ -82,50 +58,26 @@ public class CartItemDTO {
 		this.userRating = userRating;
 	}
 
-	/**
-	 *
-	 * @return
-	 */
 	public String getCartItemId() {
 		return cartItemId;
 	}
 
-	/**
-	 *
-	 * @param categoryItemId
-	 */
 	public void setCartItemId(String cartItemId) {
 		this.cartItemId = cartItemId;
 	}
 
-	/**
-	 *
-	 * @return
-	 */
 	public String getItemName() {
 		return itemName;
 	}
 
-	/**
-	 *
-	 * @param itemName
-	 */
 	public void setItemName(String itemName) {
 		this.itemName = itemName;
 	}
 
-	/**
-	 *
-	 * @return
-	 */
 	public int getItemPrice() {
 		return itemPrice;
 	}
 
-	/**
-	 *
-	 * @param itemPrice
-	 */
 	public void setItemPrice(int itemPrice) {
 		this.itemPrice = itemPrice;
 	}

@@ -15,15 +15,27 @@ import com.sun.istack.internal.Nullable;
 
 public class CartItemDAO {
 
+	/**
+	 * DBConnector変数
+	 * DB接続設定値が格納されてます。
+	 */
 	private DBConnector dbConnector = new DBConnector();
 
-	private ArrayList<CartItemDTO>  cartItemDTOList = new ArrayList<>();
-
+	/**
+	 * Connection変数
+	 * DBに接続するための実行クラスが格納されてます。
+	 */
 	private Connection connection;
 
 	/**
-	 *
-	 * @return
+	 * List<CartItemDTO>変数
+	 * cart_infoテーブルから取得した値を格納します。
+	 */
+	private List<CartItemDTO> cartItemDTOList = new ArrayList<>();
+
+	/**
+	 * cart_infoテーブルにアクセスし、カートに入れた商品情報を登録します。
+	 * @return int
 	 * @throws SQLException
 	 */
 	public int createUserCartInformationData(CategoryItemDTO categoryItemDTO, @Nullable String userId) throws SQLException {
@@ -59,6 +71,13 @@ public class CartItemDAO {
 		return resultCount;
 	}
 
+	/**
+	 * cart_infoテーブルにアクセスし、カート情報を取得します。
+	 * @param categoryItemDTO
+	 * @param userId
+	 * @return List<CartItemDTO>
+	 * @throws SQLException
+	 */
 	public List<CartItemDTO> getCartItemInfoList(CategoryItemDTO categoryItemDTO, @Nullable String userId) throws SQLException {
 
 		String userNumber = "test";
@@ -97,9 +116,13 @@ public class CartItemDAO {
 		return cartItemDTOList;
 	}
 
-
+	/**
+	 * cart_infoテーブルにアクセスし、user_id情報の更新を行います。
+	 * @param tokenUserId
+	 * @param userId
+	 * @return int
+	 */
 	public int cartInfoUserIdUpdate(String tokenUserId, String userId) {
-System.out.println(userId);
 		String updateSql = "UPDATE cart_info SET user_id = ? WHERE user_id = ?";
 		connection = dbConnector.getConnection();
 		int resultCount = 0;

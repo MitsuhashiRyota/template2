@@ -8,15 +8,27 @@ import com.internousdev.komozon.dto.LoginDTO;
 import com.internousdev.komozon.util.DBConnector;
 
 public class LoginDAO {
+
+	/**
+	 * DBConnector変数
+	 * DB接続設定値が格納されてます。
+	 */
 	private DBConnector dbConnector = new DBConnector();
 
+	/**
+	 * Connection変数
+	 * DBに接続するための実行クラスが格納されてます。
+	 */
 	private Connection connection = dbConnector.getConnection();
 
+	/**
+	 * LoginDTO変数
+	 * user_infテーブルから情報を取得し格納します。
+	 */
 	private LoginDTO loginDTO = new LoginDTO();
 
 	/**
-	 * ログインユーザ情報取得メソッド
-	 *
+	 * user_infoテーブルにアクセスし、ユーザー情報を取得します。
 	 * @param loginUserId
 	 * @param loginPassword
 	 * @return LoginDTO

@@ -27,7 +27,14 @@
 				</div>
 				<div>
 					<p>
-						カテゴリ名：<s:property value="categoryItemList[#cnt.index].categoryId" />
+						カテゴリ：
+						<s:if test="categoryItemList[#cnt.index].categoryId == 1">
+							本
+						</s:if>
+						<s:elseif test="categoryItemList[#cnt.index].categoryId == 2">
+							家電・パソコン
+						</s:elseif>
+
 					</p>
 				</div>
 				<div>

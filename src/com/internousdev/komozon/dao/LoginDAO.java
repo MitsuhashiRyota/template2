@@ -49,7 +49,7 @@ public class LoginDAO {
 				loginDTO.setPassword(resultSet.getString("password"));
 				loginDTO.setUserName(resultSet.getString("family_name") + resultSet.getString("first_name"));
 
-				if(!(resultSet.getString("logined").equals(0))) {
+				if(!(resultSet.getString("logined").equals("0"))) {
 					loginDTO.setLogineds(1);
 
 					String updateSql = "UPDATE user_info SET logined = ? WHERE user_id = ?";
